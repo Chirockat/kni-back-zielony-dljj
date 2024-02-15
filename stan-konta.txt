@@ -1,0 +1,17 @@
+Informacje mają być przechowywane w postaci kolejnych wpisów. 
+Każdy wpis musi zawierać 2 pola:
+-Data
+-Kwota na koncie
+
+W razie wykonania funkcji addFunds():
+-Data: obecna data pobrana z wykorzystaniem jakiejś domyślnej funkcji
+-Kwota na koncie: wartość kwoty na koncie z poprzedniego wpisu + zmienna_pobrana_z_konsoli
+
+W razie wykonania funkcji withdrawFunds():
+-Data: obecna data pobrana z wykorzystaniem jakiejś domyślnej funkcji
+-Kwota na koncie: wartość kwoty na koncie z poprzedniego wpisu - zmienna_pobrana_z_konsoli
+
+Żeby pierwsze wywołanie którejś z tych dwóch funkcji miały sens, 
+musimy ustalić początkową wartość kwoty na koncie (na 0 lub na kwote
+podaną za pomocą specjalnie do tego celu utworzonej funkcji)
+

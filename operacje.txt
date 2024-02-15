@@ -1,0 +1,16 @@
+Informacje mają być przechowywane w postaci kolejnych wpisów. 
+Każdy wpis musi zawierać 3 pola:
+-Data
+-Typ operacji
+-Kwota
+
+W razie wykonania funkcji addFunds():
+-Data: obecna data pobrana z wykorzystaniem jakiejś domyślnej funkcji
+-Typ operacji: Wpływ środków
+-Kwota: zmienna_pobrana_z_konsoli
+
+W razie wykonania funkcji withdrawFunds():
+-Data: obecna data pobrana z wykorzystaniem jakiejś domyślnej funkcji
+-Typ operacji: Pobranie środków
+-Kwota: zmienna_pobrana_z_konsoli
+
