@@ -1,16 +1,25 @@
-Informacje mają być przechowywane w postaci kolejnych wpisów. 
-Każdy wpis musi zawierać 3 pola:
--Data
--Typ operacji
--Kwota
+-13.02.2024
+-addFunds
+-500
 
-W razie wykonania funkcji addFunds():
--Data: obecna data pobrana z wykorzystaniem jakiejś domyślnej funkcji
--Typ operacji: Wpływ środków
--Kwota: zmienna_pobrana_z_konsoli
+-14.02.2024
+-addFunds
+-200
 
-W razie wykonania funkcji withdrawFunds():
--Data: obecna data pobrana z wykorzystaniem jakiejś domyślnej funkcji
--Typ operacji: Pobranie środków
--Kwota: zmienna_pobrana_z_konsoli
+-15.02.2024
+-withdrawFunds
+-600
+
+-16.02.2024
+-addFunds
+-100
+
+-17.02.2024
+-withdrawFunds
+-200
+
+-18.02.2024
+-addFunds
+-1000
+
 

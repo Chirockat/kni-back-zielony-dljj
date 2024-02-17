@@ -1,17 +1,17 @@
-Informacje mają być przechowywane w postaci kolejnych wpisów. 
-Każdy wpis musi zawierać 2 pola:
--Data
--Kwota na koncie
+-13.02.2024
+-500
 
-W razie wykonania funkcji addFunds():
--Data: obecna data pobrana z wykorzystaniem jakiejś domyślnej funkcji
--Kwota na koncie: wartość kwoty na koncie z poprzedniego wpisu + zmienna_pobrana_z_konsoli
+-14.02.2024
+-700
 
-W razie wykonania funkcji withdrawFunds():
--Data: obecna data pobrana z wykorzystaniem jakiejś domyślnej funkcji
--Kwota na koncie: wartość kwoty na koncie z poprzedniego wpisu - zmienna_pobrana_z_konsoli
+-15.02.2024
+-100
 
-Żeby pierwsze wywołanie którejś z tych dwóch funkcji miały sens, 
-musimy ustalić początkową wartość kwoty na koncie (na 0 lub na kwote
-podaną za pomocą specjalnie do tego celu utworzonej funkcji)
+-16.02.2024
+-200
 
+-17.02.2024
+-0
+
+-18.02.2024
+-1000
