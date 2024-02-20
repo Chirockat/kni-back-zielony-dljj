@@ -1,7 +1,8 @@
 #include "operationHelper.h"
 
 void ShowAllOperations(fstream &operationsFile){
-    operationsFile.open("operacje.txt", ios::in);
+    operationsFile.open("operation.txt", ios::in);
+    cout << "SHOW ALL OPERATIONS:"<<endl;
     if(operationsFile.is_open()){
         string line;
         while (getline(operationsFile, line))
