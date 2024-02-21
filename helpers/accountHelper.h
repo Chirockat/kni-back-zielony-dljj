@@ -7,6 +7,6 @@
 
 using namespace std;
 
-void ShowAccount(fstream &AccountFile);
+void ShowAccount(fstream &account_file);
 
 #endif

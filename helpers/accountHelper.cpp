@@ -1,15 +1,15 @@
 #include "operationHelper.h"
 
-void ShowAccount(fstream &AccountFile){
-    AccountFile.open("account.txt", ios::in);
+void ShowAccount(fstream &account_file){
+    account_file.open("account.txt", ios::in);
     cout << "SHOW ACCOUNT:"<<endl;
-    if(AccountFile.is_open()){
+    if(account_file.is_open()){
         string line;
-        while (getline(AccountFile, line))
+        while (getline(account_file, line))
         {
             cout<<line<<endl;
         }
-        AccountFile.close();
+        account_file.close();
         
     }
     
