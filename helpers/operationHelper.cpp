@@ -5,8 +5,7 @@ void ShowAllOperations(fstream &operations_file){
     cout << "SHOW ALL OPERATIONS:"<<endl;
     if(operations_file.is_open()){
         string line;
-        while (getline(operations_file, line))
-        {
+        while (getline(operations_file, line)){
             cout<<line<<endl;
         }
         operations_file.close();
@@ -14,8 +13,7 @@ void ShowAllOperations(fstream &operations_file){
     }
     
 }
-tm CurrentDate()
-{
+tm CurrentDate(){
     time_t tmNow;
     tmNow = time(NULL);
     struct tm t = *localtime(&tmNow);
@@ -52,6 +50,36 @@ void NewOperationEntry(fstream &operations_file, char operation_type, int amount
         operations_file.close();
     }
 
+    
+}
+
+void FindOperations(fstream &operations_file, string date){
+    operations_file.open("operation.txt", ios::in);
+    if(operations_file.is_open()){
+        string line;
+        int counter=0;
+
+        // adding '-' at the beginning of given date, so we can compare easier
+        date.insert (0, 1, '-');
+
+        while (getline(operations_file, line)){
+            if(date.compare(line)==0){
+                cout<<line<<endl;
+                for(int i=0;i<=1;i++){
+                    getline(operations_file, line);
+                    cout<<line<<endl;
+                }
+                cout<<endl;
+                counter++;
+
+            }
+        }
+        if(counter==0){
+            cout<<"NO ENTRIES FOUND"<<endl;
+        }
+        operations_file.close();
+    }
+    
     
 }
 

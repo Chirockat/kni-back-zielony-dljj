@@ -1,12 +1,16 @@
 #include<iostream>
+#include<fstream>
+#include<string>
 #include<ctime>
+
 using namespace std;
-tm CurrentDate()
-{
+
+int main(){
     time_t tmNow;
     tmNow = time(NULL);
     struct tm t = *localtime(&tmNow);
-    cout<<"Current Date: "<<t.tm_mday<<"-"<<t.tm_mon+1<<"-"<<t.tm_year+1900;
+    cout<<"Current Date: "<<t.tm_mday<<" "<<t.tm_mon+1<<" "<<t.tm_year+1900;
+    
     cout<<endl;
-    return t;
+    return 0;
 }

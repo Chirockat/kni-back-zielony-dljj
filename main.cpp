@@ -14,8 +14,9 @@ int main(){
     fstream operations_file;
     fstream account_file;
     tm t = CurrentDate();
-    NewOperationEntry(operations_file, '+', 1000, t);
-    ShowAllOperations(operations_file);
+    //NewOperationEntry(operations_file, '-', 500, t);
+    //ShowAllOperations(operations_file);
     //ShowAccount(account_file);
+    FindOperations(operations_file, "18.2.2024");
     return 0;
 }

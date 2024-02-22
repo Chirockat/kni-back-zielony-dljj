@@ -11,5 +11,6 @@ using namespace std;
 void ShowAllOperations(fstream &operations_file);
 void NewOperationEntry(fstream &operations_file, char operation_type, int amount, tm t);
 tm CurrentDate();
+void FindOperations(fstream &operations_file, string date);
 
 #endif
