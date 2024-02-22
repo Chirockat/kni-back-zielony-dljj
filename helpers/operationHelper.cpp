@@ -22,10 +22,10 @@ tm CurrentDate(){
     return t;
 }
 
-void NewOperationEntry(fstream &operations_file, char operation_type, int amount, tm t){
+void NewOperationEntry(fstream &operations_file, char operation_type, int operation_amount, tm t){
     operations_file.open("operation.txt", ios::app);
-    cout << "MAKING NEW ENTRY"<<endl;
     if(operations_file.is_open()){
+        cout << "MAKING NEW OPERATION ENTRY"<<endl;
         // first line - Date
         operations_file <<endl<<"-"<<t.tm_mday<<"."<<t.tm_mon+1<<"."<<t.tm_year+1900<<endl;
         // second line - Operation type
@@ -44,8 +44,8 @@ void NewOperationEntry(fstream &operations_file, char operation_type, int amount
                 break;
             }
         }
-        //third line - Amount
-        operations_file <<"-"<<amount<<endl;
+        //third line - operation_amount
+        operations_file <<"-"<<operation_amount<<endl;
 
         operations_file.close();
     }
@@ -56,6 +56,7 @@ void NewOperationEntry(fstream &operations_file, char operation_type, int amount
 void FindOperations(fstream &operations_file, string date){
     operations_file.open("operation.txt", ios::in);
     if(operations_file.is_open()){
+        cout <<"FINDING OPERATIONS FROM "<<date<<":"<<endl;
         string line;
         int counter=0;
 
@@ -82,4 +83,5 @@ void FindOperations(fstream &operations_file, string date){
     
     
 }
+
 
