@@ -1,0 +1,17 @@
+#ifndef OPERATIONS_HELPER
+#define OPERATIONS_HELPER
+
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <ctime>
+#include <iomanip>
+
+using namespace std;
+
+void ShowAllOperations(fstream &operations_file);
+void NewOperationEntry(fstream &operations_file, char operation_type, int operation_amount, tm t);
+tm CurrentDate();
+void FindOperations(fstream &operations_file, string date);
+
+#endif

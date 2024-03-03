@@ -22,4 +22,10 @@
 -addFunds
 -1000
 
+-18.02.2024
+-withdrawFunds
+-100
 
+-22.02.2024
+-addFunds
+-500
