@@ -47,7 +47,6 @@ void NewOperationEntry(fstream &operations_file, char operation_type, int operat
         }
         // third line - operation_amount
         operations_file << "-" << operation_amount << endl;
-
         operations_file.close();
     }
 }
@@ -60,10 +59,8 @@ void FindOperations(fstream &operations_file, string date)
         cout << "FINDING OPERATIONS FROM " << date << ":" << endl;
         string line;
         bool hasEntry = false;
-
         // adding '-' at the beginning of given date, so we can compare easier
         date.insert(0, 1, '-');
-
         while (getline(operations_file, line))
         {
             if (date.compare(line) == 0)

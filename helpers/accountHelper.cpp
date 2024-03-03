@@ -24,7 +24,6 @@ void NewAccountEntry(fstream &account_file, int account_amount, tm t)
         // first line - Date
         account_file << endl
                      << "-" << setw(2) << setfill('0') << t.tm_mday << "." << setw(2) << setfill('0') << t.tm_mon + 1 << "." << t.tm_year + 1900 << endl;
-
         // second line - account_amount
         account_file << "-" << account_amount << endl;
 
@@ -40,10 +39,8 @@ void FindAccountBalance(fstream &account_file, string date)
         cout << "FINDING ACCOUNT BALANCE FROM " << date << ":" << endl;
         string line;
         bool hasEntry = false;
-
         // adding '-' at the beginning of given date, so we can compare easier
         date.insert(0, 1, '-');
-
         while (getline(account_file, line))
         {
             if (date.compare(line) == 0)
