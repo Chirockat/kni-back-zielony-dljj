@@ -1,9 +1,10 @@
-#include "MonthlyExpenseSummary.h"
+#include "monthlyExpenseSummary.h"
 #include "operationHelper.h"
 #include <fstream>
 #include <sstream>
 #include <string>
 #include <map>
+#include <ctime>
 
 struct Date {
     int day;
@@ -22,7 +23,6 @@ Date parseDate(const std::string& dateStr) {
 std::map<int, std::pair<int, int>> monthlyExpenseSummary(const std::string& operations_file) {
     std::map<int, std::pair<int, int>> summary;
 
-    //Open file
     std::ifstream operationsFile(operation.txt);
     if (operationsFile.is_open()) {
         std::string line;
@@ -30,16 +30,14 @@ std::map<int, std::pair<int, int>> monthlyExpenseSummary(const std::string& oper
         int addedFunds = 0;
         int withdrawnFunds = 0;
         while (std::getline(operationsFile, line)) {
-            if (line[0] == '-')
-                {
+            if (line[0] == '-'){
                 Date operationDate = parseDate(line.substr(1));
 
-                if (operationDate.year == 2024) {
+                if (operationDate.year == currentDate->tm_year + 1900) {
                     if (operationDate.month != currentMonth) {
                         if (currentMonth != 0) {
                             summary[currentMonth] = std::make_pair(addedFunds, withdrawnFunds);
                         }
-                        //NEXT MONTH
                         currentMonth = operationDate.month;
                         addedFunds = 0;
                         withdrawnFunds = 0;

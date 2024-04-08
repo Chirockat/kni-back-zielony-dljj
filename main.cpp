@@ -4,8 +4,8 @@
 
 #include "helpers/operationHelper.h"
 #include "helpers/accountHelper.h"
-#include "controllers/MonthlyExpenseSummary.h"
-#include "controllers/TimeSlotOperations.h"
+#include "controllers/monthlyExpenseSummary.h"
+#include "controllers/timeSlotOperations.h"
 // To make everything work, we attach 3 cpp files instead of 1, for example:
 // g++ helpers//operationHelper.cpp helpers//accountHelper.cpp  main.cpp -o main .\main
 

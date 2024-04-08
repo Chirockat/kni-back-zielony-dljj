@@ -1,5 +1,5 @@
-#ifndef MonthlyExpenseSummary_h
-#define MonthlyExpenseSummary_h
+#ifndef monthlyExpenseSummary_h
+#define monthlyExpenseSummary_h
 
 #include <string>
 #include <map>

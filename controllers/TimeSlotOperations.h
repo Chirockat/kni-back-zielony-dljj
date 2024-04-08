@@ -1,5 +1,5 @@
-#ifndef TimeSlotOperations_h
-#define TimeSlotOperations_h
+#ifndef timeSlotOperations_h
+#define timeSlotOperations_h
 
 #include <string>
 #include <vector>

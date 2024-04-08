@@ -1,9 +1,10 @@
-#include "TimeSlotOperations.h"
+#include "timeSlotOperations.h"
 
 
 #include <iostream>
 #include <fstream>
 #include <sstream>
+
 
 Date parseDate(const std::string& dateStr) {
     Date date;
@@ -25,6 +26,7 @@ std::vector<std::string> getOperationsInRange(const std::string& startDateStr, c
         bool isInRange = false;
         while (std::getline(operationsFile, line)) {
             if (line[0] == '-') {
+//Checking if a line contains a date and Parsing the date from a line to check if the operation date is in range
                 Date operationDate = parseDate(line.substr(1));
                 if (operationDate.year > startDate.year || (operationDate.year == startDate.year && operationDate.month > startDate.month) ||
                     (operationDate.year == startDate.year && operationDate.month == startDate.month && operationDate.day >= startDate.day)) {
@@ -35,7 +37,6 @@ std::vector<std::string> getOperationsInRange(const std::string& startDateStr, c
                     break;
                 }
             }
-            //add operation
             if (isInRange) {
                 operations.push_back(line);
             }
