@@ -23,7 +23,7 @@ Date parseDate(const std::string& dateStr) {
 std::map<int, std::pair<int, int>> monthlyExpenseSummary(const std::string& operations_file) {
     std::map<int, std::pair<int, int>> summary;
 
-    std::ifstream operationsFile(operation.txt);
+    std::ifstream operationsFile(operations_file);
     if (operationsFile.is_open()) {
         std::string line;
         int currentMonth = 0;
