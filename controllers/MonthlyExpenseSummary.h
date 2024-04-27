@@ -12,7 +12,8 @@ struct Date {
     int year;
 };
 
-map<int, pair<int, int>> monthlyExpenseSummary(const string& operations_file);
+map<int, pair<int, int>> monthlyExpenseSummary();
+Date parseDate(const std::string& dateStr);
 
 
 #endif

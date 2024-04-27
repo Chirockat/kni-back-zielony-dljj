@@ -7,7 +7,7 @@
 #include "controllers/monthlyExpenseSummary.h"
 #include "controllers/timeSlotOperations.h"
 // To make everything work, we attach 3 cpp files instead of 1, for example:
-// g++ helpers//operationHelper.cpp helpers//accountHelper.cpp  main.cpp -o main .\main
+// g++ helpers/operationHelper.cpp helpers/accountHelper.cpp controllers/monthlyExpenseSummary.cpp controllers/timeSlotOperations.cpp main.cpp -o main .\main
 
 using namespace std;
 
@@ -29,11 +29,19 @@ int main()
     cin >> startDate;
     cout << "ENTER THE FINISH OF THE TIME PERIOD (dd.mm.rrrr): ";
     cin >> endDate;
-
     vector<std::string> operations = getOperationsInRange(startDate, endDate);
+    cout << "OPERATIONS IN RANGE:" << " " << startDate << " - " << endDate << endl;
     for (const string& operation : operations) {
         cout << operation << endl;
     }
+    
+    cout << "=============================" << endl;
+
+    cout << "MONTHLY EXPENSE SUMMARY:" << endl;
+    for (auto pair : monthlyExpenseSummary()) {
+        cout << "Month: " << pair.first << " Income: " << pair.second.first << " Expense: " << pair.second.second << endl;
+    }
+    cout << "=============================" << endl;
 
     return 0;
 }
