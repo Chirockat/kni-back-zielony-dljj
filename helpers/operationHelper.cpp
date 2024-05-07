@@ -1,4 +1,13 @@
+#include <unistd.h>
+
 #include "operationHelper.h"
+
+tm CurrentDate()
+{
+    time_t tmNow = time(NULL);
+    struct tm t = *localtime(&tmNow);
+    return t;
+}
 
 void ShowAllOperations(fstream &operations_file)
 {
@@ -13,13 +22,6 @@ void ShowAllOperations(fstream &operations_file)
         }
         operations_file.close();
     }
-}
-tm CurrentDate()
-{
-    time_t tmNow = time(NULL);
-    struct tm t = *localtime(&tmNow);
-    cout << endl;
-    return t;
 }
 
 void NewOperationEntry(fstream &operations_file, char operation_type, int operation_amount, tm t)
@@ -81,4 +83,13 @@ void FindOperations(fstream &operations_file, string date)
         }
         operations_file.close();
     }
+}
+void resetOperations()
+{
+    fstream operations_file;
+    operations_file.open("operation.txt", ios::out);
+    if (operations_file.is_open()){
+        cout << "==========RESETING OPERATIONS=======" << endl;
+        sleep(3);
+        operations_file.close();}
 }

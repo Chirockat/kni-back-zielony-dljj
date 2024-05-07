@@ -3,6 +3,7 @@
 
 #include <string>
 #include <map>
+#include <vector>
 
 using namespace std;
 
@@ -12,7 +13,15 @@ struct Date {
     int year;
 };
 
-map<int, pair<int, int>> monthlyExpenseSummary();
+struct monthlyExpenseData
+{
+    int month;
+    int year;
+    int income;
+    int expense;
+};
+
+vector<monthlyExpenseData> monthlyExpenseSummary();
 Date parseDate(const std::string& dateStr);
 
 

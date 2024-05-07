@@ -13,5 +13,5 @@ void ShowAllOperations(fstream &operations_file);
 void NewOperationEntry(fstream &operations_file, char operation_type, int operation_amount, tm t);
 tm CurrentDate();
 void FindOperations(fstream &operations_file, string date);
-
+void resetOperations();
 #endif
