@@ -13,15 +13,14 @@ struct Date {
     int year;
 };
 
-struct monthlyExpenseData
-{
+struct MonthlyExpenseData {
     int month;
     int year;
     int income;
     int expense;
 };
 
-vector<monthlyExpenseData> monthlyExpenseSummary();
+vector<MonthlyExpenseData> monthlyExpenseSummary();
 Date parseDate(const std::string& dateStr);
 
 

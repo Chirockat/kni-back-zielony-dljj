@@ -17,9 +17,9 @@ Date parseDate(const string & dateStr) {
     return date;
 }
 
-vector < monthlyExpenseData > monthlyExpenseSummary() {
-    vector < monthlyExpenseData > summary;
-    monthlyExpenseData data = {0,0,0,0};
+vector < MonthlyExpenseData > monthlyExpenseSummary() {
+    vector < MonthlyExpenseData > summary;
+    MonthlyExpenseData data = {0,0,0,0};
     Date operationDate = {0,0,0};
 
     string line;
@@ -27,9 +27,9 @@ vector < monthlyExpenseData > monthlyExpenseSummary() {
     int boundaryMonth = 0;
     int boundaryYear = 0;
 
-    fstream operations_file;
-    operations_file.open("operation.txt", ios::in);
-    if (!operations_file.is_open()) {
+    fstream operationsFile;
+    operationsFile.open("operation.txt", ios::in);
+    if (!operationsFile.is_open()) {
         cout << "Unable to open file" << endl;
         return summary;
     }
@@ -44,9 +44,9 @@ vector < monthlyExpenseData > monthlyExpenseSummary() {
 
     // reads the file line by line
     // if the line starts with a date, it checks if the date is in the range
-    // if it is, start adding data to monthlyExpenseData data
+    // if it is, start adding data to MonthlyExpenseData data
     // if month changes, push the data to summary and reset the data
-    while (getline(operations_file, line)) {
+    while (getline(operationsFile, line)) {
         if (line[3] != '.' || line[6] != '.') continue;
         operationDate = parseDate(line.substr(1));
 
@@ -61,12 +61,12 @@ vector < monthlyExpenseData > monthlyExpenseSummary() {
         }
         month = operationDate.month;
 
-        getline(operations_file, line);
+        getline(operationsFile, line);
         if (line == "-addFunds") {
-            getline(operations_file, line);
+            getline(operationsFile, line);
             data.income += stoi(line.substr(1));
         } else if (line == "-withdrawFunds") {
-            getline(operations_file, line);
+            getline(operationsFile, line);
             data.expense += stoi(line.substr(1));
         }
     }
@@ -74,7 +74,7 @@ vector < monthlyExpenseData > monthlyExpenseSummary() {
     data.year = operationDate.year;
     summary.push_back(data);
 
-    operations_file.close();
+    operationsFile.close();
 
     if (summary[0].year == 0) return {};
 

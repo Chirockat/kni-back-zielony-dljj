@@ -6,11 +6,11 @@
 #include <sstream>
 
 
-std::vector < std::string > getOperationsInRange(const std::string & startDateStr, const std::string & endDateStr) {
+std::vector < std::string > getOperationsInRange(const std::string & STARTDATESTR, const std::string & ENDDATESTR) {
     std::vector < std::string > operations;
 
-    Date startDate = parseDate(startDateStr);
-    Date endDate = parseDate(endDateStr);
+    Date startDate = parseDate(STARTDATESTR);
+    Date endDate = parseDate(ENDDATESTR);
     std::ifstream operationsFile("operation.txt");
     std::string line;
 

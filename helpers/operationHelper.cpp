@@ -8,57 +8,57 @@ tm CurrentDate() {
     return t;
 }
 
-void ShowAllOperations(fstream & operations_file) {
-    operations_file.open("operation.txt", ios::in);
+void ShowAllOperations(fstream & operationsFile) {
+    operationsFile.open("operation.txt", ios::in);
     cout << "SHOW ALL OPERATIONS:" << endl;
-    if (operations_file.is_open()) {
+    if (operationsFile.is_open()) {
         string line;
-        while (getline(operations_file, line)) {
+        while (getline(operationsFile, line)) {
             cout << line << endl;
         }
-        operations_file.close();
+        operationsFile.close();
     }
 }
 
-void NewOperationEntry(fstream & operations_file, char operation_type, int operation_amount, tm t) {
-    operations_file.open("operation.txt", ios::app);
-    if (operations_file.is_open()) {
+void NewOperationEntry(fstream & operationsFile, char operationType, int operationAmount, tm t) {
+    operationsFile.open("operation.txt", ios::app);
+    if (operationsFile.is_open()) {
         cout << "MAKING NEW OPERATION ENTRY" << endl;
         // first line - Date
-        operations_file << endl <<
+        operationsFile << endl <<
             "-" << setw(2) << setfill('0') << t.tm_mday << "." << setw(2) << setfill('0') << t.tm_mon + 1 << "." << t.tm_year + 1900 << endl;
         // second line - Operation type
-        switch (operation_type) {
+        switch (operationType) {
         case '+':
-            operations_file << "-addFunds" << endl;
+            operationsFile << "-addFunds" << endl;
             break;
         case '-':
-            operations_file << "-withdrawFunds" << endl;
+            operationsFile << "-withdrawFunds" << endl;
             break;
 
         default:
-            operations_file << "ERROR - WRONG OPERATION TYPE" << endl;
+            operationsFile << "ERROR - WRONG OPERATION TYPE" << endl;
             break;
         }
-        // third line - operation_amount
-        operations_file << "-" << operation_amount << endl;
-        operations_file.close();
+        // third line - operation amount
+        operationsFile << "-" << operationAmount << endl;
+        operationsFile.close();
     }
 }
 
-void FindOperations(fstream & operations_file, string date) {
-    operations_file.open("operation.txt", ios::in);
-    if (operations_file.is_open()) {
+void FindOperations(fstream & operationsFile, string date) {
+    operationsFile.open("operation.txt", ios::in);
+    if (operationsFile.is_open()) {
         cout << "FINDING OPERATIONS FROM " << date << ":" << endl;
         string line;
         bool hasEntry = false;
         // adding '-' at the beginning of given date, so we can compare easier
         date.insert(0, 1, '-');
-        while (getline(operations_file, line)) {
+        while (getline(operationsFile, line)) {
             if (date.compare(line) == 0) {
                 cout << line << endl;
                 for (int i = 0; i <= 1; i++) {
-                    getline(operations_file, line);
+                    getline(operationsFile, line);
                     cout << line << endl;
                 }
                 cout << endl;
@@ -68,13 +68,13 @@ void FindOperations(fstream & operations_file, string date) {
         if (!hasEntry) {
             cout << "NO ENTRIES FOUND" << endl;
         }
-        operations_file.close();
+        operationsFile.close();
     }
 }
 void resetOperations() {
-    fstream operations_file;
-    operations_file.open("operation.txt", ios::out);
-    if (operations_file.is_open()) {
+    fstream operationsFile;
+    operationsFile.open("operation.txt", ios::out);
+    if (operationsFile.is_open()) {
         cout << "==========RESETING OPERATIONS=======" << endl;
         cout << "reseting";
         for (int i = 0; i < 3; i++) {
@@ -82,6 +82,6 @@ void resetOperations() {
             sleep(1);
         }
         cout << endl;
-        operations_file.close();
+        operationsFile.close();
     }
 }
