@@ -7,23 +7,45 @@
 #include "helpers/accountHelper.h"
 #include "controllers/monthlyExpenseSummary.h"
 #include "controllers/timeSlotOperations.h"
-// To make everything work, we attach 5 cpp files instead of 1, for example:
+ // To make everything work, we attach 5 cpp files instead of 1, for example:
 // g++ helpers/operationHelper.cpp helpers/accountHelper.cpp controllers/monthlyExpenseSummary.cpp controllers/timeSlotOperations.cpp main.cpp -o main
 
 using namespace std;
 
-int main(int argc, char *argv[])
-{
-   //Resets the account and operations files with random data
-   if(argc > 1 && string(argv[1]) == "debug"){
-      debugReset();
+int main(int argc, char * argv[]) {
+   if (argc > 1 && string(argv[1]) == "debug") {
+       debugReset();
    }
-   if(argc > 1 && string(argv[1]) == "reset"){
-      resetOperations();
-      resetAccount();
+   if (argc > 1 && string(argv[1]) == "reset") {
+       resetOperations();
+       resetAccount();
    }
-    
-   /* Account and Operations examples
+
+   // Account status example
+   cout << "ACCOUNT STATUS AT THE END OF EACH MONTH:" << endl;
+   if (accoutStatusAtEndOfMonth().empty()) {
+       cout << "No data available" << endl;
+   } else {
+       for (auto item: accoutStatusAtEndOfMonth()) {
+           cout << "Year: " << item.year << " Month: " << item.month << " Account balance: " << item.account_balance << endl;
+       }
+   }
+   cout << "=============================" << endl;
+
+   // Monthly expense summary example
+   cout << "MONTHLY EXPENSE SUMMARY:" << endl;
+   if (monthlyExpenseSummary().empty()) {
+       cout << "No data available" << endl;
+   } else {
+       for (auto item: monthlyExpenseSummary()) {
+           cout << "Year: " << item.year << " Month: " << item.month << " Income: " << item.income << " Expense: " << item.expense << endl;
+       }
+   }
+   cout << "=============================" << endl;
+   return 0;
+}
+
+/* Account and Operations examples
    fstream operations_file;
    fstream account_file;
 
@@ -35,9 +57,9 @@ int main(int argc, char *argv[])
    NewAccountEntry(account_file, 100, t);
    ShowAccount(account_file);
    FindAccountBalance(account_file, "18.02.2024");
-   */
+*/
 
-   /* Time slot operations example
+/* Time slot operations example
    string startDate,endDate;
    cout << "ENTER THE BEGINNING OF THE TIME PERIOD (dd.mm.rrrr): ";
    cin >> startDate;
@@ -48,28 +70,4 @@ int main(int argc, char *argv[])
    for (const string& operation : operations) {
       cout << operation << endl;
    }
-   */
-
-   // Account status example
-   cout << "ACCOUNT STATUS AT THE END OF EACH MONTH:" << endl;
-   if(accoutStatusAtEndOfMonth().empty()){
-      cout << "No data available" << endl;
-   } else {
-      for (auto item : accoutStatusAtEndOfMonth()) {
-            cout << "Year: " << item.year << " Month: " << item.month << " Account balance: " << item.account_balance << endl;
-      }
-   }
-
-   cout << "=============================" << endl;
-   
-   // Monthly expense summary example
-   cout << "MONTHLY EXPENSE SUMMARY:" << endl;
-   if(monthlyExpenseSummary().empty()){
-      cout << "No data available" << endl;
-   } else {
-      for (auto item : monthlyExpenseSummary()) {
-         cout << "Year: " << item.year << " Month: " << item.month << " Income: " << item.income << " Expense: " << item.expense << endl;
-      }
-   }
-   return 0;
-}
+*/
