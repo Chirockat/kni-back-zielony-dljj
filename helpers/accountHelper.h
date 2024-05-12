@@ -6,11 +6,21 @@
 #include <string>
 #include <ctime>
 #include <iomanip>
+#include <vector>
 
 using namespace std;
 
-void ShowAccount(fstream &account_file);
-void NewAccountEntry(fstream &account_file, int account_amount, tm t);
-void FindAccountBalance(fstream &account_file, string date);
+struct AccountStatusData {
+    int month;
+    int year;
+    int account_balance;
+};
 
+void ShowAccount(fstream &accountFile);
+void NewAccountEntry(fstream &accountFile, int accountAmount, tm t);
+void FindAccountBalance(fstream &accountFile, string date);
+void resetAccount();
+void debugReset(int startYears, int endYears, int startMonth, int endMonth, int startDay, int endDay, int startAmount);
+void debugReset();
+vector<AccountStatusData> accoutStatusAtEndOfMonth();
 #endif

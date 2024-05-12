@@ -9,9 +9,9 @@
 
 using namespace std;
 
-void ShowAllOperations(fstream &operations_file);
-void NewOperationEntry(fstream &operations_file, char operation_type, int operation_amount, tm t);
+void ShowAllOperations(fstream &operationsFile);
+void NewOperationEntry(fstream &operationsFile, char operationType, int operationAmount, tm t);
 tm CurrentDate();
-void FindOperations(fstream &operations_file, string date);
-
+void FindOperations(fstream &operationsFile, string date);
+void resetOperations();
 #endif
